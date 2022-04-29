@@ -17,14 +17,14 @@ use App\Service\Contracts\LogFileImporterInterface;
 use Throwable;
 
 #[AsCommand(
-    name: 'legal1:logs-import',
+    name: 'logs:import',
     description: 'Parse a log file and import each line as record in the `logs` table.',
 )]
 class LogsImportCommand extends Command
 {
     public const ARGUMENT_FILE = 'file';
 
-    protected static $defaultName = 'legal1:logs-import';
+    protected static $defaultName = 'logs:import';
 
     public function __construct(
         private ContainerInterface $container,
