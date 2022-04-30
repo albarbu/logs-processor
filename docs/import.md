@@ -5,12 +5,18 @@
 The import can be done like this:
 
 * copy the log file to a location under the application's root directory (e.g `data/logs/Aug2021.txt`);
-* from the main application container, execute the below Symfony command using the relative path of the log file as parameter:
+* from the main application container, execute the below Symfony command using the relative path of the log file as parameter:<br>
+`bin/console logs:import data/logs/Aug2021.txt`
+* [optional] check the imported entries directly in the DB container (the table is named "logs"), e.g:<br>
+-- enter the DB container:  
+`$ docker exec -it logs-processor-install_database_1 /bin/sh`<br>
+-- access the database via the Postgres command line:  
+`# psql -U legal1 -d legal_one`<br>
+-- check the structure and records in the `logs` table:  
+`legal_one=# \d logs;`<br>
+`legal_one=# select * from logs;`.<br>
 
-    `bin/console logs:import data/logs/Aug2021.txt`
-* [optional] check the imported entries in the DB container (the table is named "logs").
-
-The columns of the `logs` table are defined like below:<br>
+*Observation:* The columns of the `logs` table are defined like below:<br>
 `log_processing_id SERIAL PRIMARY KEY,`  
 `file_path VARCHAR(255) NOT NULL,`<br>
 `started_at TIMESTAMP NOT NULL,`<br>

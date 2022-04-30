@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Index;
 use ApiPlatform\Core\Annotation\{ApiProperty, ApiResource, ApiFilter};
@@ -81,6 +82,21 @@ use App\Api\Controller\LogsCountController;
  *                          },
  *                          "description": "filter on request status code"
  *                      }
+ *                  },
+ *                  "responses"={
+ *                      "200"={
+ *                          "description"="count of matching results",
+ *                          "content"={
+ *                              "application/json"={
+ *                                  "schema"={
+ *                                      "$ref"="#/components/schemas/Logs.LogsCountOutput"
+ *                                  }
+ *                              }
+ *                          }
+ *                      },
+ *                      "400"={
+ *                          "description"="bad input parameter"
+ *                      }
  *                  }
  *              }
  *          }
@@ -107,7 +123,7 @@ class Logs
     private $serviceName;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      *
      * @ORM\Column(name="recorded_at", type="datetime", nullable=false)
      */
@@ -142,7 +158,7 @@ class Logs
     private $statusCode;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=false)
      */
@@ -181,17 +197,17 @@ class Logs
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
-    public function getRecordedAt(): \DateTime
+    public function getRecordedAt(): DateTime
     {
         return $this->recordedAt;
     }
 
     /**
-     * @param \DateTime $recordedAt
+     * @param DateTime $recordedAt
      */
-    public function setRecordedAt(\DateTime $recordedAt): void
+    public function setRecordedAt(DateTime $recordedAt): void
     {
         $this->recordedAt = $recordedAt;
     }
@@ -261,17 +277,17 @@ class Logs
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): DateTime
     {
         return $this->createdAt;
     }
 
     /**
-     * @param \DateTime $createdAt
+     * @param DateTime $createdAt
      */
-    public function setCreatedAt(\DateTime $createdAt): void
+    public function setCreatedAt(DateTime $createdAt): void
     {
         $this->createdAt = $createdAt;
     }

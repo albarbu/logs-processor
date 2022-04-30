@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,14 +31,14 @@ class LogsProcessing
     private $filePath;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      *
      * @ORM\Column(name="started_at", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
     private $startedAt;
 
     /**
-     * @var \DateTime|null
+     * @var DateTime|null
      *
      * @ORM\Column(name="finished_at", type="datetime", nullable=true)
      */
@@ -51,7 +52,7 @@ class LogsProcessing
     private $lastProcessedLine = '0';
 
     /**
-     * @var \DateTime
+     * @var DateTime
      *
      * @ORM\Column(name="updated_at", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
@@ -82,33 +83,33 @@ class LogsProcessing
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
-    public function getStartedAt(): \DateTime|string
+    public function getStartedAt(): DateTime|string
     {
         return $this->startedAt;
     }
 
     /**
-     * @param \DateTime $startedAt
+     * @param DateTime $startedAt
      */
-    public function setStartedAt(\DateTime $startedAt): void
+    public function setStartedAt(DateTime $startedAt): void
     {
         $this->startedAt = $startedAt;
     }
 
     /**
-     * @return \DateTime|null
+     * @return DateTime|null
      */
-    public function getFinishedAt(): ?\DateTime
+    public function getFinishedAt(): ?DateTime
     {
         return $this->finishedAt;
     }
 
     /**
-     * @param \DateTime|null $finishedAt
+     * @param DateTime|null $finishedAt
      */
-    public function setFinishedAt(?\DateTime $finishedAt): void
+    public function setFinishedAt(?DateTime $finishedAt): void
     {
         $this->finishedAt = $finishedAt;
     }
@@ -141,17 +142,17 @@ class LogsProcessing
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
-    public function getUpdatedAt(): \DateTime|string
+    public function getUpdatedAt(): DateTime|string
     {
         return $this->updatedAt;
     }
 
     /**
-     * @param \DateTime $updatedAt
+     * @param DateTime $updatedAt
      */
-    public function setUpdatedAt(\DateTime|string $updatedAt): void
+    public function setUpdatedAt(DateTime|string $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
     }
