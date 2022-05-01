@@ -23,7 +23,7 @@ Feel free to adapt the variables if you want to.
 `POSTGRES_USER=legal1 POSTGRES_PASSWORD=legal1 POSTGRES_DATABASE=legal_one SYMFONY_VERSION=5.4.* HTTP_PORT=8000 SERVER_NAME="http://logs-processor.localhost" docker-compose build --pull --no-cache`
 <br>to get the necessary images and build the containers.
 5. Run<br>
-   `HTTP_PORT=8000 SERVER_NAME="http://logs-processor.localhost" docker-compose up -d`<br>
+   `POSTGRES_USER=legal1 POSTGRES_PASSWORD=legal1 POSTGRES_DATABASE=legal_one HTTP_PORT=8000 SERVER_NAME="http://logs-processor.localhost" docker-compose up -d`<br>
 to raise the containers up.
 6. Enter the main application container, e.g<br>
 `docker exec -it logs-processor_php_1 /bin/sh`<br> and run<br>`composer install`<br>to import required packages.
